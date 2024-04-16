@@ -20,7 +20,11 @@ let isEditTask = false;
 updateListTasks()
 
 // Add addEventListener=============================
-
+textareaForm.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' && !event.shiftKey) {
+        sendTask(event)
+    }
+})
 form.addEventListener('submit', sendTask)
 buttonCancel.addEventListener('click', resetSendForm)
 output.addEventListener('dragover', initSortableList)
